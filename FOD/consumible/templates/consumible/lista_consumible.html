@@ -15,13 +15,13 @@
                 <div class="card m-2" style="width: 24rem;" >
                     <div class="card-body">
                     <h5 class="card-title">{{ expendable.designacion }}</h5>
-                    <p class="card-text">sector: {{ expendable.descripcion }}</p>
+                    <p class="card-text">Descripción: {{ expendable.descripcion }}</p>
                     <a href="{% url 'Detalle-Consumible' expendable.id %}" class="btn btn-primary">Ver</a>
                     {% if perms.expendable.change_movie %}
-                        <a href="{% url 'Editar-Consumible' expendable.id %}" class="btn btn-primary">Editar</a>
+                        <a href="{% url 'Editar-Consumible' expendable.id %}" class="btn btn-success">Editar</a>
                     {% endif %}
                     {% if perms.expendable.delete_movie %}
-                        <a href="{% url 'Eliminar-Consumible' expendable.id %}" class="btn btn-primary">Borrar</a>
+                        <a href="{% url 'Eliminar-Consumible' expendable.id %}" class="btn btn-danger">Borrar</a>
                     {% endif %}
                     </div>
                 </div>

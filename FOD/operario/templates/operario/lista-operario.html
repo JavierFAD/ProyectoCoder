@@ -6,8 +6,9 @@
 {% block main %}
     <div>
         {% if perms.operario.add_movie %}
-            <a href="{% url 'Crear-Operario' %}" class="m-3 btn btn-primary">Registrar Nuevo Operario</a>
-            <a href="{% url 'Buscar-Operario' %}" class="m-3 btn btn-info">Buscar Operario</a>
+            <a href="{% url 'Crear-Operario' %}" class="m-3 btn btn-success">Registrar Nuevo Operario</a>
+            <a href="{% url 'Buscar-Operario' %}" class="m-3 btn btn-primary">Buscar Operario por Apellido</a>
+            <a href="{% url 'Buscar-Legajo' %}" class="m-3 btn btn-primary">Buscar Operario por Legajo</a>
         {% endif %}
     </div>
     {% if object_list %}

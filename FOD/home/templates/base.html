@@ -17,73 +17,61 @@
         <link href={%static "css/styles.css"%} rel="stylesheet" />
     </head>
     <body>
+        
         <!-- Navigation-->
-        {% comment %} <nav class="navbar navbar-expand-lg navbar-light" id="mainNav"> {% endcomment %}
-            {% comment %} <nav class="navbar bg-primary" data-bs-theme="dark">
-                
-            <div class="container px-4 px-lg-5">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
                 <a class="navbar-brand" href={% url 'Home'%}>Inicio</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Desplegar
-                    <i class="fas fa-bars"></i>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                         {% if user.is_authenticated %}
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'Lista-Operario'%}>Operarios</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'Listado-Encargado'%}>Encargado</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'Listado-Herramienta'%}>Herramienta</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'Listado-Consumible'%}>Consumible</a></li>
+                        <div class="vr"></div>
+                        <li class="nav-item">
+                            <a class="nav-link" href={% url 'Listado-Encargado'%}>Encargados</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href={% url 'Lista-Operario'%}>Operarios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href={% url 'Listado-Herramienta'%}>Herramientas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href={% url 'Listado-Consumible'%}>Consumibles</a>
+                        </li>
                         {% endif %}
-                        {% if request.user.is_authenticated %}
-                                <a class="navbar-brand" href="{% url 'mostrar-cuenta' %}">
-                                    {% if request.user.administrador.avatar %}
-                                        <img src={{request.user.administrador.avatar.url}} alt="" height="50px" class="rounded-circle">
-                                    {% endif %}
-                                    {{request.user.username}}
+                        <div class="vr"></div>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle"role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Cuenta
+                            </a>
+                        <ul class="dropdown-menu">
+                            {% if request.user.is_authenticated %}
+                                <a class="dropdown-item" href="{% url 'mostrar-cuenta' %}">
+                                {% if request.user.administrador.avatar %}
+                                    <img src={{request.user.administrador.avatar.url}} alt="" height="50px" class="rounded-circle">
+                                {% endif %}
+                                {{request.user.username}}
                                 </a>
-                            <a class="navbar-brand" href="{% url 'logout' %}">Logout</a>
-                        {% else %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Crear cuenta</a></li>
-                        {% endif %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'About' %}">Sobre mi</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <a class="dropdown-item" href="{% url 'logout' %}">Cerrar Sesión</a>
+                            {% else %}
+                            <li><a class="dropdown-item" href="{% url 'login' %}">Iniciar sesión</a></li>
+                            <li><a class="dropdown-item" href="{% url 'register' %}">Crear cuenta</a></li>
+                            {% endif %}
+                        </ul>
+                        </li>
+                        <div class="vr"></div>
+                        <li class="nav-item">
+                            <a class="nav-link seccondary" href="{% url 'About' %}">Sobre mi</a></li>
+                        </li>
                     </ul>
                 </div>
             </div>
-        </nav> {% endcomment %}
-
-        <nav class="navbar bg-primary" data-bs-theme="dark">
-            <div class="container px-4 px-lg-5">
-              <a class="navbar-brand" href="{% url 'Home' %}">Inicio</a>
-              <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                {% if user.is_authenticated %}
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'Lista-Operario' %}">Operarios</a></li>
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'Listado-Encargado' %}">Encargado</a></li>
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'Listado-Herramienta' %}">Herramienta</a></li>
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'Listado-Consumible' %}">Consumible</a></li>
-                {% endif %}
-                {% if request.user.is_authenticated %}
-                  <li class="nav-item">
-                    <a class="navbar-brand" href="{% url 'mostrar-cuenta' %}">
-                      {% if request.user.administrador.avatar %}
-                        <img src="{{ request.user.administrador.avatar.url }}" alt="" height="50px" class="rounded-circle">
-                      {% endif %}
-                      {{ request.user.username }}
-                    </a>
-                  </li>
-                  <li class="nav-item"><a class="navbar-brand" href="{% url 'logout' %}">Logout</a></li>
-                {% else %}
-                  <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a></li>
-                  <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Crear cuenta</a></li>
-                {% endif %}
-                <li class="nav-item"><a class="nav-link" href="{% url 'About' %}">Sobre mí</a></li>
-              </ul>
-            </div>
-          </nav>
-          
-
-
+        </nav>
+        
 
         {% block main %}
 
