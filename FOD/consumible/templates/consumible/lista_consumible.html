@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Consumible {% endblock title %}
+
+{% block main %}
+    <div>
+        {% if perms.expendable.add_movie %}
+            <a href="{% url 'Crear-Consumible' %}" class="m-2 btn btn-primary">Crear Consumible</a>
+        {% endif %}
+    </div>
+    {% if object_list %}
+        <div class="row">
+            {% for expendable in object_list %}
+                <div class="card m-2" style="width: 24rem;" >
+                    <div class="card-body">
+                    <h5 class="card-title">{{ expendable.designacion }}</h5>
+                    <p class="card-text">sector: {{ expendable.descripcion }}</p>
+                    <a href="{% url 'Detalle-Consumible' expendable.id %}" class="btn btn-primary">Ver</a>
+                    {% if perms.expendable.change_movie %}
+                        <a href="{% url 'Editar-Consumible' expendable.id %}" class="btn btn-primary">Editar</a>
+                    {% endif %}
+                    {% if perms.expendable.delete_movie %}
+                        <a href="{% url 'Eliminar-Consumible' expendable.id %}" class="btn btn-primary">Borrar</a>
+                    {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="card" style="width: 24rem;" >
+            <div class="card-body">
+                <p class="card-text">No se encontraron datos.</p>
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock main %}

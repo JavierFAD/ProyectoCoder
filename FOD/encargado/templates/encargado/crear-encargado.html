@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Nuevo Encargado  {% endblock title %}
+
+{% block main %}
+    <form method="POST" class="m-3">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Crear" class="m-2 btn btn-primary">
+        <a href="{% url 'Listado-Encargado'%}" button type="button" class="m-2 btn btn-primary"> Cancelar</button> </a>
+    </form>
+{% endblock main %}

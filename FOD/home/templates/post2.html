@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Seguridad Operacional {% endblock title %}
+
+{% block main %}
+        <!-- Page Header-->
+        <header class="masthead" style= "background-image: url('{% static 'assets/img/Post2.jpg' %}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>Qué es la seguridad Operacional?</h1>
+                            <h2 class="subheading">Seguridad operacional. Estado en que el riesgo de lesiones a las personas o daños a los bienes se
+                                reduce y se mantiene en un nivel aceptable, o por debajo del mismo, por medio de un proceso continuo de
+                                identificación de peligros y gestión de riesgos.
+                                </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <p>Cualquiera sea la connotación, todas tienen un carácter subyacente común: la posibilidad del control
+                            absoluto. La ausencia de accidentes, de peligros, etc., transmite la idea de que sería posible — por diseño o
+                            intervención — tener bajo control, en los contextos operacionales de la aviación, todas las variables que puedan
+                            precipitar resultados malos o perjudiciales. No obstante, si bien la eliminación de accidentes o incidentes graves y el
+                            logro del control absoluto son ciertamente deseables, son también objetivos que no pueden lograrse en contextos
+                            operacionales abiertos y dinámicos. Los peligros son componentes integrales de los contextos operacionales
+                            aeronáuticos. En la aviación ocurrirán fallas y errores operacionales, a pesar de los mejores y más logrados esfuerzos
+                            por evitarlos. Ninguna actividad humana o sistema artificial puede garantizarse como absolutamente libre de peligros y
+                            errores operacionales.</p>
+                        <p>Por consiguiente, la seguridad operacional es un concepto que debe comprender aspectos relativos más
+                            que absolutos, según el cual los riesgos para la seguridad operacional que surgen de las consecuencias de los peligros
+                            en contextos operacionales deben ser aceptables en un sistema inherentemente seguro. El aspecto principal sigue
+                            siendo todavía el control, pero el control relativo más que el absoluto. En la medida en que los riesgos para la seguridad
+                            operacional y los errores operacionales se mantienen bajo un grado razonable de control, un sistema tan abierto y
+                            dinámico como la aviación civil comercial se puede considerar seguro. En otras palabras, los riesgos para la seguridad
+                            operacional y los errores operacionales que se controlan a un grado razonable son aceptables en un sistema
+                            inherentemente seguro.</p>
+                        <a href="#!"><img class="img-fluid" src={% static "assets/img/escudo.jpg"%} alt="..." /></a>
+                        <span class="caption text-muted">No aprendas la seguridad por accidente.</span>
+
+                    </div>
+                </div>
+            </div>
+        </article>
+        {% endblock main %}

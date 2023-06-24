@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Herramienta  {% endblock title %}
+
+{% block main %}
+    <form method="POST" class="m-2">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Enviar" class="btn btn-primary">
+        <a href="{%url 'Listado-Herramienta'%}" class="btn btn-primary">Volver a Listado</a>
+    </form>
+
+{% endblock main %}

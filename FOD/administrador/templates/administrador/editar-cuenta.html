@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Editar cuenta {% endblock title %}
+
+{% block main %}
+    <form method="POST" class="m-2" enctype='multipart/form-data'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Confirmar" class="btn btn-success">
+    </form>
+    <div>
+        <a href="{% url 'cambiar-pass' %}" class="m-2 btn btn-info">Cambiar contraseña</a>
+    </div>
+{% endblock main %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Eliminar Cuenta {% endblock title %}
+
+{% block main %}
+    <form action="{% url 'eliminar-cuenta' user.id %}" method="POST" class="m-2">
+        {% csrf_token %}
+        <p>Quieres eliminar esta cuenta?</p>
+        <input type="submit" value="Confirmar" class="btn btn-danger">
+        <a href="{% url 'mostrar-cuenta' %}"><button class="btn btn-success m-2" type="button">Cancelar</button></a>
+    </form>
+{% endblock main %}

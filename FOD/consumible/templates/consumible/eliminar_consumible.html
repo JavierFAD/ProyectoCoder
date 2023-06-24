@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Consumible {% endblock title %}
+
+{% block main %}
+    <form action="{% url 'Eliminar-Consumible' object.id %}" method="POST" class="m-2">
+        {% csrf_token %}
+        <p>Desea eliminar este consumible?</p>
+        <input type="submit" value="Confirmar" class="btn btn-primary">
+    </form>
+{% endblock main %}

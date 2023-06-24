@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Sobre mi {% endblock title %}
+
+{% block main %}
+        <!-- Page Header-->
+        <header class="masthead" style= "background-image: url('{% static 'assets/img/Pampa.jpg' %}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1>Sobre mi</h1>
+                            <span class="subheading">Te cuento un poco</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <p>Mi nombre es Javier Acosta. Soy Mecánico de Aeronaves, Señalero de Aeródromo y Operador de servicios en Rampa. Como se puede apreciar, mi formación tiene poco que ver con la programación.</p>
+                        <p>También cursé 3 años de Ingeniería Electrónica en la Universidad Nacional de Córdoba, donde tuve un breve encuentro con una materia llamada Informática, en la cual logré escribir un poco de código en C.</p>
+                        <p>Desde ese momento despertó mi curiosidad por la programación. Durante mucho tiempo, pospuse adentrarme en este "universo". Hace 10 años, un ex compañero de la facultad me dijo que Python era el futuro.</p>
+                        <p>Hace unos meses, durante una charla con mi equipo de trabajo, surgió un tema de conversación: "¿Qué tan difícil sería 'crear' un 'programa' para controlar la situación de nuestras herramientas?. Cuantas y cuales tenemos?" etc.</p>
+                        <p>Esa idea estuvo rondando en mi cabeza hasta que decidí tomar un curso de "Python" en "CODERHOUSE". Y hoy, en un humilde intento de mantener la seguridad operacional en mi lugar de trabajo, desarrollé esta web.</p>
+                        <p>Espero que este sea el primero de muchos proyectos :)</p>
+                        <p> Gracias por leer hasta aquí. Un abrazo virtual.</p>
+                        <p>Javier</p>
+                    </div>
+                </div>
+            </div>
+        </main>       
+        {% endblock main %}

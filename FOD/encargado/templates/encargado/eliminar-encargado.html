@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Eliminar Encargado {% endblock title %}
+
+{% block main %}
+    <form action="{% url 'Eliminar-Encargado' object.id %}" method="POST" class="m-2">
+        {% csrf_token %}
+        <p>Desea eliminar este encargado?</p>
+        <input type="submit" value="Confirmar" class="btn btn-primary">
+        <a href="{%url 'Listado-Encargado'%}" class="btn btn-primary">Volver a Listado</a>
+
+    </form>
+{% endblock main %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Inicio {% endblock title %}
+
+{% block main %}
+        <!-- Page Header-->
+        <header class="masthead" style= "background-image: url('static/assets/img/home-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Control de Herramientas</h1>
+                            <span class="subheading">Evite el F.O.D.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+                    <div class="post-preview">
+                        <h1>PARA LEER UN POCO</h1>
+                    <hr class="my-4" />
+                        <a href={%url 'Post'%}>
+                            <h2 class="post-title">Qué es el D.O.E. ("F.O.D.")</h2>
+                            <h3 class="post-subtitle">Entra al artículo para conocer un poco más sobre el DOE, sus concecuencias y por qué debemos evitarlo</h3>
+                        </a>
+                    </div>
+                    <!-- Divider-->
+                    <hr class="my-4" />
+                    <!-- Post preview-->
+                    <div class="post-preview">
+                        <a href="{%url 'Post-2'%}">
+                            <h2 class="post-title">Hablemos de Seguridad Operacional</h2>
+                            <h3 class="post-subtitle">Un poco de información sobre seguridad.</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endblock main %}

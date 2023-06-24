@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Herramienta {% endblock title %}
+
+{% block main %}
+    <div>
+        <a href="{% url 'Listado-Herramienta' %}" class="m-2 btn btn-primary">Atrás</a>
+    </div>
+    {% if herramienta %}
+        <div class="row">
+            <div class="card m-2" style="width: 24rem;" >
+                <div class="card-body">
+                <h5 class="card-title">{{ herramienta.designacion }} {{ herramienta.rastreo }}</h5>
+                </h6>Fecha de asignado: {{ herramienta.asignado }}</h6>
+                <p class="card-text"><h6>Asignado a: </h6> {{ herramienta.operario }}</p>
+                <p class="card-text"><h6>Fecha de calibración: </h6> {{ herramienta.calibracion }}</p>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="card" style="width: 24rem;" >
+            <div class="card-body">
+                <p class="card-text">No se encontraron datos.</p>
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock main %}

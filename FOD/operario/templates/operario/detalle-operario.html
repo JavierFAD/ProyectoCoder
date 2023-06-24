@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Operario {% endblock title %}
+
+{% block main %}
+    <div>
+        <a href="{% url 'Lista-Operario' %}" button type="button" class="m-2 btn btn-primary"> Atrás </button></a>
+    </div>
+    {% if operario %}
+        <div class="row">
+            <div class="card m-2" style="width: 24rem;" >
+                <div class="card-body">
+                <h5 class="card-title">{{ operario.nombre }} {{ operario.apellido }}<br/> Legajo: {{ operario.legajo }}</h5>
+                <p class="card-text"><h6>Encargado: </h6>{{ operario.encargado}} <h6>Función: </h6> {{ operario.funcion }} </p>
+
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="card" style="width: 24rem;" >
+            <div class="card-body">
+                <p class="card-text">No se encontraron datos.</p>
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock main %}

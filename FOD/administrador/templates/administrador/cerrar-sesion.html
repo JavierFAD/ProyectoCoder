@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Cerrar Sesión {% endblock title %}
+
+{% block main %}
+<div class="card text-center">
+    <div class="card-header">
+      Control de Herramientas
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Sesion Finalizada</h5>
+      <p class="card-text">Hasta Luego</p>
+      <a href="{%url 'Home'%}" class="btn btn-primary">Ir al Inicio</a>
+    </div>
+
+  </div>
+{% endblock main %}

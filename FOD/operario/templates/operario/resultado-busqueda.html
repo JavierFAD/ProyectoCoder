@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Resultado {% endblock title %}
+
+{% block main %}
+<br/><br/>
+
+    <body>
+    {% for operario in operarios %}
+    <div class="card" style="width: 50rem;">
+        <div class="card-body">
+            <h5 class="card-title">Legajo: {{operario.legajo}}</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">Apellido y nombre: {{operario.apellido}}, {{operario.nombre}}</h6>
+            <p class="card-text">Función: {{operario.funcion}}</p>
+            <p class="card-text">Encargado: {{operario.encargado}}</p>
+            <a href="{%url 'Editar-Operario' operario.id %}}" class="btn btn-primary">Editar Datos</a>
+            
+        </div>
+    </div>
+    {% endfor %}
+    <br/>
+    <a href="{%url 'Lista-Operario'%}" class="btn btn-primary">Volver al listado</a>
+    </body>
+
+<br/><br/>
+
+{% endblock main %}
