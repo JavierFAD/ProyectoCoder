@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Resultado Busqueda {% endblock title %}
+
+{% block main %}
+<br/><br/>
+
+    <body>
+    {%if encargados %}
+    {% for encargado in encargados %}
+    <div class="card m-3" style="width: 24rem;" >
+        <div class="card-body">
+        <h5 class="card-title">{{ encargado.apellido }}|| Legajo {{ encargado.legajo }}</h5>
+        </br>
+        <a href="{% url 'Detalle-Encargado' encargado.id %}" class="btn btn-primary">Ver</a>
+        {% if perms.encargado.change_movie %}
+            <a href="{% url 'Editar-Encargado' encargado.id %}" class="btn btn-success">Editar</a>
+        {% endif %}
+        {% if perms.encargado.delete_movie %}
+            <a href="{% url 'Eliminar-Encargado' encargado.id %}" class="btn btn-danger">Borrar</a>
+        {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+    <br/>
+    
+    </body>
+    {% else %}
+    <div class="card" style="width: 40rem;">
+        <div class="card-body">
+            <a style="color: red;">Encargado no encontrado o los datos ingresados son incorrectos.</a>
+        </div>
+    </div>
+    {% endif %}
+    <a href="{%url 'Listado-Encargado'%}" class="btn btn-primary">Volver al listado</a>
+<br/><br/>
+
+{% endblock main %}

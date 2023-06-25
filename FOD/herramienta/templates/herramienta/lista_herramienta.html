@@ -6,7 +6,7 @@
 {% block main %}
     <div>
         {% if perms.herramienta.add_movie %}
-            <a href="{% url 'Crear-Herramienta' %}" class="m-2 btn btn-primary">Crear Herramienta</a>
+            <a href="{% url 'Crear-Herramienta' %}" class="m-2 btn btn-success">Registrar Nueva Herramienta</a>
         {% endif %}
     </div>
     {% if object_list %}
