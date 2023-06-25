@@ -2,6 +2,7 @@ from django.db import models
 from encargado.models import Encargado
 
 
+
 class Operario(models.Model):
     nombre      = models.CharField(max_length=80,blank=True,null=True, default='')
     apellido    = models.CharField(max_length=60)
@@ -11,8 +12,7 @@ class Operario(models.Model):
 
     # @property
     # def caja(self):
-    #   
-    #     
+    #     herramientas = 
     #     return
     
     def __str__(self) -> str:

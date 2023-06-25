@@ -7,7 +7,7 @@
     <div>
         {% if perms.encargado.add_movie %}
             <a href="{% url 'Crear-Encargado'%}" class="m-3 btn btn-success">Crear Encargado</a>
-            <a href="#!" class="m-3 btn btn-primary">Buscar Encargado</a>
+            <a href="{% url 'Buscar-Operario'%}" class="m-3 btn btn-primary">Buscar Encargado</a>
             
         {% endif %}
     </div>

@@ -8,6 +8,8 @@
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Iniciar sesión" class="btn btn-primary">
-        <p>Recuerde solicitar permiso de acceso a opciones de edición al administrador.</p>
+        <p>Recuerde solicitar permisos a opciones de edición al administrador.</p>
+        <a href="{% url 'Contacto' %}" class="m-2 btn btn-primary">Solicitar Acceso</a>
     </form>
 {% endblock main %}
+

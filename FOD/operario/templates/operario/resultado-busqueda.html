@@ -8,6 +8,7 @@
 <br/><br/>
 
     <body>
+    {%if operarios %}
     {% for operario in operarios %}
     <div class="card" style="width: 50rem;">
         <div class="card-body">
@@ -21,9 +22,16 @@
     </div>
     {% endfor %}
     <br/>
-    <a href="{%url 'Lista-Operario'%}" class="btn btn-primary">Volver al listado</a>
+    
     </body>
-
+    {% else %}
+    <div class="card" style="width: 40rem;">
+        <div class="card-body">
+            <a style="color: red;">Operario no encontrado o los datos ingresados son incorrectos.</a>
+        </div>
+    </div>
+    {% endif %}
+    <a href="{%url 'Lista-Operario'%}" class="btn btn-primary">Volver al listado</a>
 <br/><br/>
 
 {% endblock main %}

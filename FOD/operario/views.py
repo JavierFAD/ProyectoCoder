@@ -4,7 +4,7 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import DeleteView, UpdateView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from .models import Operario
-from .forms import BuscaOperario, BuscaLegajo
+from .forms import BuscaOperario
 from django.urls import reverse_lazy
 
 class OperarioListView(LoginRequiredMixin, ListView):
@@ -46,24 +46,11 @@ def buscar(request):
         
         if busca_operario.is_valid():
             info = busca_operario.cleaned_data
-            operarios = Operario.objects.filter(apellido__icontains=info["apellido"])
+            operarios = Operario.objects.filter(apellido__icontains=info["apellido"], legajo__icontains=info["legajo"])
             return render(request, "operario/resultado-busqueda.html", {"operarios": operarios})
         else:
-            return render(request, "operario/detalle-operario.html")
+            return render(request, "operario/detalle-operario.html", {"miFormulario": busca_operario})
     else:
         busca_operario = BuscaOperario()
         return render(request, "operario/busca-operario.html", {"miFormulario": busca_operario})
     
-def buscarLegajo(request):
-    if request.method=="POST":
-        busca_operario = BuscaLegajo(request.POST)
-        
-        if busca_operario.is_valid():
-            info = busca_operario.cleaned_data
-            operarios = Operario.objects.filter(legajo__icontains=info["legajo"])
-            return render(request, "operario/resultado-busqueda.html", {"operarios": operarios})
-        else:
-            return render(request, "operario/detalle-operario.html")
-    else:
-        busca_operario = BuscaLegajo()
-        return render(request, "operario/busca-legajo.html", {"miFormulario": busca_operario})

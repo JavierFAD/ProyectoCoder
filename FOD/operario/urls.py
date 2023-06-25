@@ -10,7 +10,6 @@ urlpatterns = [
     path('editar_operario/<int:pk>/', views.OperarioEditView.as_view(), name="Editar-Operario"),
     path('eliminar_operario/<int:pk>/', views.DeleteOperarioView.as_view(), name="Eliminar-Operario"),
     path('buscar_operario/', views.buscar, name="Buscar-Operario"),
-    path('buscar_legajo/', views.buscarLegajo, name="Buscar-Legajo"),
 
 ]
 
