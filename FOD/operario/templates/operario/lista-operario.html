@@ -5,25 +5,27 @@
 
 {% block main %}
     <div>
-        {% if perms.operario.add_movie %}
-            <a href="{% url 'Crear-Operario' %}" class="m-3 btn btn-success">Registrar Nuevo Operario</a>
-            <a href="{% url 'Buscar-Operario' %}" class="m-3 btn btn-primary">Buscar Operario</a>
+        {% if perms.operario.add_operario %}
+            <a href="{% url 'Crear-Operario' %}" class="m-2 btn btn-success">Registrar Nuevo Operario</a>
+            <a href="{% url 'Buscar-Operario' %}" class="m-2 btn btn-primary">Buscar Operario</a>
         {% endif %}
     </div>
     {% if object_list %}
         <div class="row">
             {% for operario in object_list %}
                 <div class="card m-3" style="width: 25rem;" >
+                    <img src={{operario.imagen.url}} alt="" height='50px' width='50px'>
                     <div class="card-body">
                     <h4 class="card-title">{{ operario.nombre }} {{ operario.apellido }}</h4>
                     <h7> Legajo: {{ operario.legajo }}</h7></br>
-
+                    {% if perms.operario.view_operario%}
                     <a href="{% url 'Detalle-Operario' operario.id %}" class="btn btn-primary">Ver</a>
-                    {% if perms.operario.change_movie %}
+                    {% endif %}
+                    {% if perms.operario.change_operario %}
                         <a href="{% url 'Editar-Operario' operario.id %}" class="btn 
                         btn-success">Editar</a>
                     {% endif %}
-                    {% if perms.operario.delete_movie %}
+                    {% if perms.operario.delete_operario %}
                         <a href="{% url 'Eliminar-Operario' operario.id %}" class="btn btn-danger">Borrar</a>
                     {% endif %}
                     </div>

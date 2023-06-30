@@ -5,23 +5,24 @@
 
 {% block main %}
     <div>
-        {% if perms.expendable.add_movie %}
-            <a href="{% url 'Crear-Consumible' %}" class="m-2 btn btn-primary">Crear Consumible</a>
+        {% if perms.consumible.add_consumible %}
+            <a href="{% url 'Crear-Consumible' %}" class="m-2 btn btn-success">Registrar Nuevo Consumible</a>
         {% endif %}
     </div>
     {% if object_list %}
         <div class="row">
-            {% for expendable in object_list %}
+            {% for consumible in object_list %}
                 <div class="card m-2" style="width: 24rem;" >
+                    <img src={{consumible.imagen.url}} alt="" height='50px' width='50px'>
                     <div class="card-body">
-                    <h5 class="card-title">{{ expendable.designacion }}</h5>
-                    <p class="card-text">Descripción: {{ expendable.descripcion }}</p>
-                    <a href="{% url 'Detalle-Consumible' expendable.id %}" class="btn btn-primary">Ver</a>
-                    {% if perms.expendable.change_movie %}
-                        <a href="{% url 'Editar-Consumible' expendable.id %}" class="btn btn-success">Editar</a>
-                    {% endif %}
-                    {% if perms.expendable.delete_movie %}
-                        <a href="{% url 'Eliminar-Consumible' expendable.id %}" class="btn btn-danger">Borrar</a>
+                    <h5 class="card-title">{{ consumible.designacion }}</h5>
+                    <p class="card-text">Descripción: {{ consumible.descripcion }}</p>
+                    {% if perms.consumible.view_consumible%}
+                    <a href="{% url 'Detalle-Consumible' consumible.id %}" class="btn btn-primary">Ver</a>{% endif %}
+                    {% if perms.consumible.change_consumible %}
+                        <a href="{% url 'Editar-Consumible' consumible.id %}" class="btn btn-success">Editar</a>{% endif %}
+                    {% if perms.consumible.delete_consumible %}
+                        <a href="{% url 'Eliminar-Consumible' consumible.id %}" class="btn btn-danger">Borrar</a>
                     {% endif %}
                     </div>
                 </div>

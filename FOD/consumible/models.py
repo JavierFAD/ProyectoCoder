@@ -8,6 +8,8 @@ class Consumible(models.Model):
     vencimiento   = models.DateField(null=True,blank=True, help_text='Formato mm/dd/aaaa')
     lote          = models.CharField(max_length=30)
     especificacion= models.TextField(blank=True, help_text='Especificaciones Técnicas del Producto(Data Sheet)')
+    imagen = models.ImageField(blank=True, null=True, upload_to='consumibles', default='consumible.png')
+    
     
     def __str__(self) -> str:
         return self.designacion + ' -----> ' + str(self.cantidad) + self.unidad  + ' | ' + self.descripcion

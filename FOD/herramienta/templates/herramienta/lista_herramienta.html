@@ -5,7 +5,7 @@
 
 {% block main %}
     <div>
-        {% if perms.herramienta.add_movie %}
+        {% if perms.herramienta.add_herramienta %}
             <a href="{% url 'Crear-Herramienta' %}" class="m-2 btn btn-success">Registrar Nueva Herramienta</a>
         {% endif %}
     </div>
@@ -13,14 +13,17 @@
         <div class="row">
             {% for herramienta in object_list %}
                 <div class="card m-2" style="width: 24rem;" >
+                    <img src={{herramienta.imagen.url}} alt="" height='50px' width='50px'>
                     <div class="card-body">
                     <h5 class="card-title">{{ herramienta.designacion }} {{ herramienta.rastreo }}</h5>
-                    <p class="card-text">Detalle: {{ herramienta.descripcion }}</p>
+                    <p class="card-text">En poseción de: {{ herramienta.operario }}</p>
+                    {% if perms.herramienta.view_herramienta%}
                     <a href="{% url 'Detalle-Herramienta' herramienta.id %}" class="btn btn-primary">Ver</a>
-                    {% if perms.herramienta.change_movie %}
+                    {% endif %}
+                    {% if perms.herramienta.change_herramienta %}
                         <a href="{% url 'Editar-Herramienta' herramienta.id %}" class="btn btn-success">Editar</a>
                     {% endif %}
-                    {% if perms.herramienta.delete_movie %}
+                    {% if perms.herramienta.delete_herramienta %}
                         <a href="{% url 'Eliminar-Herramienta' herramienta.id %}" class="btn btn-danger">Borrar</a>
                     {% endif %}
                     </div>

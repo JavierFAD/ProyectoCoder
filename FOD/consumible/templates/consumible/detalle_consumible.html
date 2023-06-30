@@ -10,6 +10,7 @@
     {% if consumible %}
         <div class="row">
             <div class="card m-3" style="width: 24rem;" >
+                <img src={{consumible.imagen.url}} alt="consumible" style="height: 160px; width: 160px;">
                 <div class="card-body">
                 <h5 class="card-title">{{ consumible.designacion }}</h5>
                 <p class="card-text">Descripción: {{ consumible.descripcion }}.</br> {{ consumible.cantidad }} {{ consumible.unidad }} </p>
