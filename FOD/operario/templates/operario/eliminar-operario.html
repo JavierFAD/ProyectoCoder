@@ -5,10 +5,14 @@
 {% block title %} Eliminar Operario {% endblock title %}
 
 {% block main %}
-    <form action="{% url 'Eliminar-Operario' object.id %}" method="POST" class="m-2">
+<div class="d-flex justify-content-center">
+    <div class="card" style="width: 22rem; color:white; background: #D01212;" >
+    <form action="{% url 'Eliminar-Herramienta' object.id %}" method="POST" class="m-2">
         {% csrf_token %}
         <p>Desea eliminar el Operario?</p>
-        <input type="submit" value="Confirmar" class="btn btn-danger">
+        <input type="submit" value="Confirmar" class="btn btn-primary">
         <a href="{%url 'Lista-Operario'%}" class="btn btn-primary">Volver a Listado</a>
     </form>
+</div>
+</div>
 {% endblock main %}
