@@ -5,23 +5,26 @@
 
 {% block main %}
     <div>
-        {% if perms.herramienta.add_movie %}
-            <a href="{% url 'Crear-Herramienta' %}" class="m-2 btn btn-primary">Crear Herramienta</a>
+        {% if perms.herramienta.add_herramienta %}
+            <a href="{% url 'Crear-Herramienta' %}" class="m-2 btn btn-success">Registrar Nueva Herramienta</a>
         {% endif %}
     </div>
     {% if object_list %}
         <div class="row">
             {% for herramienta in object_list %}
                 <div class="card m-2" style="width: 24rem;" >
-                    <div class="card-body">
-                    <h5 class="card-title">{{ herramienta.designacion }} {{ herramienta.rastreo }}</h5>
-                    <p class="card-text">Detalle: {{ herramienta.descripcion }}</p>
-                    <a href="{% url 'Detalle-Herramienta' herramienta.id %}" class="btn btn-primary">Ver</a>
-                    {% if perms.herramienta.change_movie %}
-                        <a href="{% url 'Editar-Herramienta' herramienta.id %}" class="btn btn-primary">Editar</a>
+                    {% if herramienta.imagen %}
+                    <img src={{herramienta.imagen.url}} alt="" height='50px' width='50px'>
                     {% endif %}
-                    {% if perms.herramienta.delete_movie %}
-                        <a href="{% url 'Eliminar-Herramienta' herramienta.id %}" class="btn btn-primary">Borrar</a>
+                    <div class="card-body">
+                    <h5 class="card-title">{{ herramienta.designacion }} </br> N° de rastreo: {{ herramienta.rastreo }}</h5>
+                    <p class="card-text"><b>En posesión de:</b> {{ herramienta.operario }}</p>
+                    <a href="{% url 'Detalle-Herramienta' herramienta.id %}" class="btn btn-primary">Ver</a>
+                    {% if perms.herramienta.change_herramienta %}
+                        <a href="{% url 'Editar-Herramienta' herramienta.id %}" class="btn btn-success">Editar</a>
+                    {% endif %}
+                    {% if perms.herramienta.delete_herramienta %}
+                        <a href="{% url 'Eliminar-Herramienta' herramienta.id %}" class="btn btn-danger">Borrar</a>
                     {% endif %}
                     </div>
                 </div>

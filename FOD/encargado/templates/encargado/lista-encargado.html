@@ -5,9 +5,9 @@
 
 {% block main %}
     <div>
-        {% if perms.encargado.add_movie %}
-            <a href="{% url 'Crear-Encargado'%}" class="m-3 btn btn-success">Crear Encargado</a>
-            <a href="#!" class="m-3 btn btn-primary">Buscar Encargado</a>
+        {% if perms.encargado.add_encargado %}
+            <a href="{% url 'Crear-Encargado'%}" class="m-2 btn btn-success">Registrar Nuevo Encargado</a>
+            <a href="{% url 'Buscar-Encargado'%}" class="m-2 btn btn-primary">Buscar Encargado</a>
             
         {% endif %}
     </div>
@@ -15,14 +15,17 @@
         <div class="row">
             {% for encargado in object_list %}
                 <div class="card m-3" style="width: 24rem;" >
+                    {% if encargado.imagen %}
+                    <img src={{encargado.imagen.url}} alt="" height='50px' width='50px'>
+                    {% endif %}
                     <div class="card-body">
                     <h5 class="card-title">{{ encargado.apellido }}|| Legajo {{ encargado.legajo }}</h5>
                     </br>
                     <a href="{% url 'Detalle-Encargado' encargado.id %}" class="btn btn-primary">Ver</a>
-                    {% if perms.encargado.change_movie %}
+                    {% if perms.encargado.change_encargado %}
                         <a href="{% url 'Editar-Encargado' encargado.id %}" class="btn btn-success">Editar</a>
                     {% endif %}
-                    {% if perms.encargado.delete_movie %}
+                    {% if perms.encargado.delete_encargado %}
                         <a href="{% url 'Eliminar-Encargado' encargado.id %}" class="btn btn-danger">Borrar</a>
                     {% endif %}
                     </div>

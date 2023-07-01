@@ -5,12 +5,16 @@
 {% block title %} Editar cuenta {% endblock title %}
 
 {% block main %}
+<div class="d-flex justify-content-center">
+    <div class="card" style="width: 30rem;" >
     <form method="POST" class="m-2" enctype='multipart/form-data'>
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Confirmar" class="btn btn-success">
     </form>
     <div>
-        <a href="{% url 'cambiar-pass' %}" class="m-2 btn btn-info">Cambiar contraseña</a>
+        <a href="{% url 'cambiar-pass' %}" class="m-2 btn btn-primary">Cambiar contraseña</a>
     </div>
+</div>
+</div>
 {% endblock main %}

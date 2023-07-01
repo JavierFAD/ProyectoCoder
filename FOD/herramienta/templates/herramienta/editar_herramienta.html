@@ -5,9 +5,13 @@
 {% block title %} Herramienta {% endblock title %}
 
 {% block main %}
-    <form method="POST" class="m-2">
+<div class="d-flex justify-content-center">
+    <div class="card" style="width: 60rem; color:white; background: #196F3D;" >
+    <form method="POST" class="m-2" enctype='multipart/form-data'>
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Editar" class="btn btn-primary">
+        <input type="submit" value="Guardar cambios" class="btn btn-primary">
     </form>
+</div>
+</div>
 {% endblock main %}

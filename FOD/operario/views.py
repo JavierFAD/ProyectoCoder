@@ -46,10 +46,11 @@ def buscar(request):
         
         if busca_operario.is_valid():
             info = busca_operario.cleaned_data
-            operarios = Operario.objects.filter(apellido__icontains=info["apellido"])
+            operarios = Operario.objects.filter(apellido__icontains=info["apellido"], legajo__icontains=info["legajo"])
             return render(request, "operario/resultado-busqueda.html", {"operarios": operarios})
         else:
-            return render(request, "operario/detalle-operario.html")
+            return render(request, "operario/detalle-operario.html", {"miFormulario": busca_operario})
     else:
         busca_operario = BuscaOperario()
         return render(request, "operario/busca-operario.html", {"miFormulario": busca_operario})
+    

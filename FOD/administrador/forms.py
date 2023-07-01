@@ -15,7 +15,7 @@ class RegistroUsuarioForm(UserCreationForm):
 
 
 class EditarUsuarioForm(forms.Form):
-    email = forms.EmailField(required=False)
     first_name = forms.CharField(label='Nombre', max_length=30, required=False)
     last_name = forms.CharField(label='Apellido', max_length=30, required=False)
-    avatar = forms.ImageField(required=False)
+    email = forms.EmailField(required=False)
+    avatar = forms.ImageField(required=False, label='Avatar')

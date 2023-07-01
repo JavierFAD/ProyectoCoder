@@ -4,10 +4,15 @@
 {% block title %} Iniciar Sesion {% endblock title %}
 
 {% block main %}
+<div class="d-flex justify-content-center">
+    <div class="card" style="width: 18rem; background: #82E0AA" >
     <form method="POST" class="m-2">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Iniciar sesión" class="btn btn-primary">
-        <p>Recuerde solicitar permiso de acceso a opciones de edición al administrador.</p>
+        <p>Recuerde solicitar permisos de edición al administrador.</p>
     </form>
+</div>
+</div>
 {% endblock main %}
+

@@ -10,10 +10,12 @@
     {% if operario %}
         <div class="row">
             <div class="card m-2" style="width: 24rem;" >
+                {% if operario.imagen %}
+                <img src={{operario.imagen.url}} alt="" style="height: 160px; width:160px">
+                {% endif %}
                 <div class="card-body">
-                <h5 class="card-title">{{ operario.nombre }} {{ operario.apellido }}<br/> Legajo: {{ operario.legajo }}</h5>
-                <p class="card-text"><h6>Encargado: </h6>{{ operario.encargado}} <h6>Función: </h6> {{ operario.funcion }} </p>
-
+                    <h5 class="card-title">{{ operario.nombre }} {{ operario.apellido }}<br/> Legajo: {{ operario.legajo }}</h5>
+                    <p class="card-text"><h6>Encargado: </h6>{{ operario.encargado}} <h6>Función: </h6> {{ operario.funcion }} </p>
                 </div>
             </div>
         </div>

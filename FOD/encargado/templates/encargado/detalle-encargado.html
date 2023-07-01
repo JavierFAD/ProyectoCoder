@@ -12,6 +12,9 @@
         <div class="row">
             <div class="card m-3" style="width: 30rem;" >
                 <div class="card-body">
+                    {% if encargado.imagen %}
+                    <img src={{encargado.imagen.url}} alt="encargado" style="height:160px; width: 160px;">
+                    {% endif %}
                     <div class="flex-shrink-0">
                     </div>
                 <h5 class="card-title">{{ encargado.nombre }} {{ encargado.apellido }} || Legajo: {{ encargado.legajo }}</h5>

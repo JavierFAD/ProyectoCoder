@@ -5,6 +5,8 @@
 {% block title %} Eliminar Encargado {% endblock title %}
 
 {% block main %}
+<div class="d-flex justify-content-center">
+    <div class="card" style="width: 22rem; color:white; background: #D01212;" >
     <form action="{% url 'Eliminar-Encargado' object.id %}" method="POST" class="m-2">
         {% csrf_token %}
         <p>Desea eliminar este encargado?</p>
@@ -12,4 +14,6 @@
         <a href="{%url 'Listado-Encargado'%}" class="btn btn-primary">Volver a Listado</a>
 
     </form>
+</div>
+</div>
 {% endblock main %}

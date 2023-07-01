@@ -8,5 +8,6 @@ urlpatterns = [
     path('crear_encargado/', views.CreateEncargadoView.as_view(), name="Crear-Encargado"),
     path('editar_encargado/<int:pk>/', views.EncargadoEditView.as_view(), name="Editar-Encargado"),
     path('eliminar_encargado/<int:pk>/', views.DeleteEncargadoView.as_view(), name="Eliminar-Encargado"),
+    path('buscar_encargado/', views.buscaEncargado, name="Buscar-Encargado"),
 ]
 

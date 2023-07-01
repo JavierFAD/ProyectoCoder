@@ -5,9 +5,15 @@
 {% block title %} Consumible {% endblock title %}
 
 {% block main %}
-    <form action="{% url 'Eliminar-Consumible' object.id %}" method="POST" class="m-2">
-        {% csrf_token %}
-        <p>Desea eliminar este consumible?</p>
-        <input type="submit" value="Confirmar" class="btn btn-primary">
-    </form>
+
+    <div class="d-flex justify-content-center">
+        <div class="card" style="width: 22rem; color:white; background: #D01212;" >
+        <form action="{% url 'Eliminar-Consumible' object.id %}" method="POST" class="m-2">
+            {% csrf_token %}
+            <b>Desea eliminar este elemento?</b>
+            <input type="submit" value="Confirmar" class="btn btn-primary">
+            <a href="{% url 'Detalle-Consumible' consumible.id %}" class="btn btn-primary">Atrás</a>
+        </form>
+    </div>
+    </div>
 {% endblock main %}

@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.views import PasswordChangeView, LogoutView
 
 
+
 from django.views.generic import DeleteView
 
 from django.shortcuts import render, redirect
@@ -67,13 +68,14 @@ def editar_perfil(request):
 
     form = forms.EditarUsuarioForm(
         initial={
-            'email': usuario.email,
             'first_name': usuario.first_name,
             'last_name': usuario.last_name,
+            'email': usuario.email,
             'avatar': modelo_perfil.avatar
         }
     )
     return render(request, 'administrador/editar-cuenta.html', {'form': form})
+
 
 @login_required 
 def mostrar_perfil(request):
@@ -82,6 +84,7 @@ def mostrar_perfil(request):
 class CambiarPassword(LoginRequiredMixin, PasswordChangeView):
     template_name = 'administrador/cambiar-pass.html'
     success_url = reverse_lazy("mostrar-cuenta")
+    
 
 class EliminarPerfil(LoginRequiredMixin, DeleteView):
     model = User

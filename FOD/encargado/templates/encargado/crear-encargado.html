@@ -5,10 +5,14 @@
 {% block title %} Nuevo Encargado  {% endblock title %}
 
 {% block main %}
-    <form method="POST" class="m-3">
+<div class="d-flex justify-content-center">
+    <div class="card" style="width: 60rem; color:white; background: #B03A2E;" >
+    <form method="POST" class="m-2" enctype='multipart/form-data'>
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Crear" class="m-2 btn btn-primary">
+        <input type="submit" value="Cargar datos" class="m-2 btn btn-primary">
         <a href="{% url 'Listado-Encargado'%}" button type="button" class="m-2 btn btn-primary"> Cancelar</button> </a>
     </form>
+</div>
+</div>
 {% endblock main %}

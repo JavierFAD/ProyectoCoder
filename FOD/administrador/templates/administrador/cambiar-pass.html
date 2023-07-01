@@ -4,10 +4,13 @@
 {% block title %} Cambiar contraseña {% endblock title %}
 
 {% block main %}
+<div class="d-flex justify-content-center">
+    <div class="card" style="width: 30rem;" >
     <form method="POST" class="m-2">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Cambiar" class="btn btn-primary">
-        {% comment %} cambiar botón {% endcomment %}
+        <input type="submit" value="Cambiar" class="btn btn-success">
     </form>
+</div>
+</div>
 {% endblock main %}
