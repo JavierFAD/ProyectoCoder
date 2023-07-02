@@ -11,3 +11,5 @@ Se pueden cargar imagenes y fotos, tanto de las herramientas como de los operari
 Para solicitar acceso, el usuario debe enviar un mensaje al "staff". Mientras tanto, solo puede ver datos cargados por otros usuarios pero no puede modificar nada.
 Los usuarios pueden cargar un avatar para identificarse o usar uno predeterminado que se lo otorga automaticamente cuando carga su nombre y apellido.
 Así mismo operarios, encargados y herramientas tienen una imagen predeterminada si el usuario no carga las imagenes en la creación
+
+Enlace a un video de muestra en Youtube = https://youtu.be/BZ-Uc-Io6ww
