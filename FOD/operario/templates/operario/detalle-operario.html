@@ -4,27 +4,37 @@
 {% block title %} Operario {% endblock title %}
 
 {% block main %}
-    <div>
-        <a href="{% url 'Lista-Operario' %}" button type="button" class="m-2 btn btn-primary"> Atrás </button></a>
-    </div>
-    {% if operario %}
-        <div class="row">
-            <div class="card m-2" style="width: 24rem;" >
-                {% if operario.imagen %}
-                <img src={{operario.imagen.url}} alt="" style="height: 200px; width:200px">
-                {% endif %}
-                <div class="card-body">
-                    <h5 class="card-title">{{ operario.nombre }} {{ operario.apellido }}<br/> Legajo: {{ operario.legajo }}</h5>
-                    <p class="card-text"><h6>Encargado: </h6>{{ operario.encargado}} <h6>Función: </h6> {{ operario.funcion }} </p>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Detalles de Operario</h5>
+                    </div>
+                    <div class="card-body">
+                        {% if operario %}
+                            <div class="row">
+                                <div class="col-md-4">
+                                    {% if operario.imagen %}
+                                        <img src="{{ operario.imagen.url }}" alt="" class="img-thumbnail">
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-8">
+                                    <h5 class="card-title">{{ operario.apellido }} {{ operario.nombre }}</h5>
+                                    <p class="card-text"><strong>Legajo:</strong> {{ operario.legajo }}</p>
+                                    <p class="card-text"><strong>Lider:</strong> {{ operario.encargado }}</p>
+                                    <p class="card-text"><strong>Función:</strong> {{ operario.funcion }}</p>
+                                </div>
+                            </div>
+                        {% else %}
+                            <p class="card-text">No se encontraron datos.</p>
+                        {% endif %}
+                    </div>
+                    <div class="card-footer bg-primary text-white text-center">
+                        <a href="{% url 'Lista-Operario' %}" class="btn btn-light">Volver</a>
+                    </div>
                 </div>
             </div>
         </div>
-    {% else %}
-        <div class="card" style="width: 24rem;" >
-            <div class="card-body">
-                <p class="card-text">No se encontraron datos.</p>
-            </div>
-        </div>
-    {% endif %}
-
+    </div>
 {% endblock main %}

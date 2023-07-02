@@ -9,7 +9,8 @@
     <form method="POST" class="m-2">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Cambiar" class="btn btn-success">
+        <input type="submit" value="Cambiar" class="btn btn-primary">
+        <a href="{%url 'editar-cuenta'%}" class="btn btn-primary">Volver</a>
     </form>
 </div>
 </div>

@@ -1,20 +1,28 @@
 {% extends 'base.html' %}
-
 {% load static %}
 
-{% block title %} Herramienta  {% endblock title %}
+{% block title %} Cargar Herramienta {% endblock title %}
 
 {% block main %}
-<div class="d-flex justify-content-center">
-    <div class="card" style="width: 60rem; color:white; background: #196F3D;" >
-    <form method="POST" class="m-2" enctype='multipart/form-data'>
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Cargar herramienta" class="btn btn-primary">
-        <a href="{%url 'Listado-Herramienta'%}" class="btn btn-primary">Volver a Listado</a>
-    </form>
-</div>
-</div>
-        
-
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card" style="background: #f8f9fa;">
+                    <div class="card-header">
+                        <h5 class="mb-0 text">Cargar Herramienta</h5>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <div class="text-center mt-4">
+                                <input type="submit" value="Cargar herramienta" class="btn btn-success">
+                                <a href="{% url 'Listado-Herramienta' %}" class="btn btn-secondary">Volver a Listado</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock main %}

@@ -4,30 +4,38 @@
 {% block title %} Herramienta {% endblock title %}
 
 {% block main %}
-    <div>
-        <a href="{% url 'Listado-Herramienta' %}" class="m-2 btn btn-primary">Atrás</a>
-    </div>
-    {% if herramienta %}
-        <div class="row">
-            <div class="card m-2" style="width: 70rem;" >
-                {% if herramienta.imagen %}
-                <img src={{herramienta.imagen.url}} alt="" style="height: 200px; width:200px">
-                {% endif %}
-                <div class="card-body">
-                <h5 class="card-title">{{ herramienta.designacion }} {{ herramienta.rastreo }}</h5>
-                </h6>Fecha de asignado: {{ herramienta.asignado }}</h6>
-                <p class="card-text"><h6>Asignado a: </h6> {{ herramienta.operario }}</p>
-                <p class="card-text"><h6>Descripción: </h6> {{ herramienta.descripcion }}</p>
-                <p class="card-text"><h6>Fecha de calibración: </h6> {{ herramienta.calibracion }}</p>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Detalles de Herramienta</h5>
+                    </div>
+                    <div class="card-body">
+                        {% if herramienta %}
+                            <div class="row">
+                                <div class="col-md-4">
+                                    {% if herramienta.imagen %}
+                                        <img src="{{ herramienta.imagen.url }}" alt="" class="img-thumbnail">
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-8">
+                                    <h5 class="card-title">{{ herramienta.designacion }} {{ herramienta.rastreo }}</h5>
+                                    <p class="card-text"><strong>Fecha de asignado:</strong> {{ herramienta.asignado }}</p>
+                                    <p class="card-text"><strong>Asignado a:</strong> {{ herramienta.operario }}</p>
+                                    <p class="card-text"><strong>Descripción:</strong> {{ herramienta.descripcion }}</p>
+                                    <p class="card-text"><strong>Fecha de calibración:</strong> {{ herramienta.calibracion }}</p>
+                                </div>
+                            </div>
+                        {% else %}
+                            <p class="card-text">No se encontraron datos.</p>
+                        {% endif %}
+                    </div>
+                    <div class="card-footer bg-primary text-white text-center">
+                        <a href="{% url 'Listado-Herramienta' %}" class="btn btn-light">Volver</a>
+                    </div>
                 </div>
             </div>
         </div>
-    {% else %}
-        <div class="card" style="width: 24rem;" >
-            <div class="card-body">
-                <p class="card-text">No se encontraron datos.</p>
-            </div>
-        </div>
-    {% endif %}
-
+    </div>
 {% endblock main %}

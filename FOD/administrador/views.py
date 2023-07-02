@@ -4,11 +4,8 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.contrib.auth.views import PasswordChangeView, LogoutView
-
-
-
-from django.views.generic import DeleteView
-
+from django.views.generic import DeleteView, CreateView, DetailView
+from django.views.generic.list import ListView
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 
@@ -94,4 +91,26 @@ class EliminarPerfil(LoginRequiredMixin, DeleteView):
 class Logout(LoginRequiredMixin, LogoutView):
     template_name = 'administrador/cerrar-sesion.html'
 
+def succes(request):
+    return render(request, "administrador/solicitud_exitosa.html")
 
+#Mensajes
+class CreatemensajeView(LoginRequiredMixin, CreateView):
+    model = models.Mensaje
+    template_name = 'administrador/solicitud_staff.html'
+    success_url = reverse_lazy('solicitud-exitosa')
+    fields = '__all__'
+    
+
+class VerMensajesViews(LoginRequiredMixin, ListView):
+    model = models.Mensaje
+    template_name = 'administrador/lista-mensajes.html'
+    
+class DetalleMensajeView(LoginRequiredMixin, DetailView):
+    model = models.Mensaje
+    template_name = 'administrador/ver-mensaje.html'
+    
+class BorrarMensajeView(LoginRequiredMixin, DeleteView):
+    model = models.Mensaje
+    success_url = reverse_lazy('lista-mensajes')
+    template_name = "administrador/eliminar-mensaje.html"

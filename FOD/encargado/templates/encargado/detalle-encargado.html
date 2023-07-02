@@ -1,34 +1,40 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %} Detalle del encargado {% endblock title %}
+{% block title %} Encargado {% endblock title %}
 
 {% block main %}
-    <div>
-        <a href="{% url 'Listado-Encargado'%}" button type="button" class="m-2 btn btn-primary"> Atras</button> </a>
-        
-    </div>
-    {% if encargado %}
-        <div class="row">
-            <div class="card m-3" style="width: 30rem;" >
-                <div class="card-body">
-                    {% if encargado.imagen %}
-                    <img src={{encargado.imagen.url}} alt="encargado" style="height:200px; width: 200px;">
-                    {% endif %}
-                    <div class="flex-shrink-0">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Detalles de Encargado</h5>
                     </div>
-                <h5 class="card-title">{{ encargado.nombre }} {{ encargado.apellido }} || Legajo: {{ encargado.legajo }}</h5>
-                <p class="card-text"> <h6>Sector: </h6> {{ encargado.sector }} </p>
-                <p> <h6>Función: </h6> {{ encargado.funcion }}</p>
+                    <div class="card-body">
+                        {% if encargado %}
+                            <div class="row">
+                                <div class="col-md-4">
+                                    {% if encargado.imagen %}
+                                        <img src="{{ encargado.imagen.url }}" alt="" class="img-thumbnail">
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-8">
+                                    <h5 class="card-title">{{ encargado.apellido }} {{ encargado.nombre }}</h5>
+                                    <p class="card-text"><strong>Legajo:</strong> {{ encargado.legajo }}</p>
+                                    <p class="card-text"><strong>Sector:</strong> {{ encargado.sector }}</p>
+                                    <p class="card-text"><strong>Función:</strong> {{ encargado.funcion }}</p>
+                                </div>
+                            </div>
+                        {% else %}
+                            <p class="card-text">No se encontraron datos.</p>
+                        {% endif %}
+                    </div>
+                    <div class="card-footer bg-primary text-white text-center">
+                        <a href="{% url 'Listado-Encargado' %}" class="btn btn-light">Volver</a>
+                    </div>
                 </div>
             </div>
         </div>
-    {% else %}
-        <div class="card" style="width: 30rem;" >
-            <div class="card-body">
-                <p class="card-text">No se encontraron datos.</p>
-            </div>
-        </div>
-    {% endif %}
-
+    </div>
 {% endblock main %}

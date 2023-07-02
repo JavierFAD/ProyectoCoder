@@ -8,6 +8,8 @@
     <div class="card" style="width: 18rem;" >
         {% if request.user.administrador.avatar %}
         <img src={{request.user.administrador.avatar.url}} class="card-img-top" alt="avatar">
+        {% else %}
+        <img src={% static "/media/avatares/usuario.png"%}>
         {% endif %}
         <div class="card-body">
             <h5 class="card-title">{{ request.user.last_name }}, {{ request.user.first_name }}</h5>

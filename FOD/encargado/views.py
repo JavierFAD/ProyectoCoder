@@ -33,7 +33,7 @@ class EncargadoEditView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView)
 
 class DeleteEncargadoView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     model = Encargado
-    permission_required = "leader.delete_leader"
+    permission_required = "encargado.delete_encargado"
     template_name = 'encargado/eliminar-encargado.html'
     success_url = reverse_lazy('Listado-Encargado')
 

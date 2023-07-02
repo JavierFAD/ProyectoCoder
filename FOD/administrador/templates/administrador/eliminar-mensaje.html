@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %} Eliminar Cuenta {% endblock title %}
+{% block title %} Eliminar Mensaje {% endblock title %}
 
 {% block main %}
 <div class="container">
@@ -10,13 +10,13 @@
         <div class="col-lg-6">
             <div class="card border-0 shadow">
                 <div class="card-body p-4">
-                    <h3 class="card-title text-center mb-4">Eliminar Cuenta</h3>  
-                    <form action="{% url 'eliminar-cuenta' user.id %}" method="POST" class="m-2">
+                    <h3 class="card-title text-center mb-4">Eliminar Mensaje</h3>  
+                    <form action="{% url 'eliminar-mensaje' mensaje.id %}" method="POST" class="m-2">
                     {% csrf_token %}
-                    <p class="text-center">¿Está seguro de que desea eliminar su cuenta?</p>
+                    <p class="text-center">¿Está seguro de que desea eliminar este mensaje?</p>
                     <div class="text-center">
                         <input type="submit" value="Confirmar" class="btn btn-danger me-2">
-                        <a href="{% url 'mostrar-cuenta' %}"><button class="btn btn-secondary m-2" type="button">Atrás</button></a>
+                        <a href="{% url 'ver-mensaje' mensaje.id%}"><button class="btn btn-secondary m-2" type="button">Atrás</button></a>
                         </div>
                     </form>
                 </div>

@@ -11,7 +11,7 @@ class RegistroUsuarioForm(UserCreationForm):
     class Meta:
         model = User
         fields = ["username", "email", "password1", "password2"]
-        help_texts = { key: 'Se sugiere. 150 caracteres o menos. Letras, números y solo @/./+/-/_ .' for key in fields }
+        help_texts = { key: 'Se sugiere. 40 caracteres o menos. Letras, números y solo @/./+/-/_ .' for key in fields }
 
 
 class EditarUsuarioForm(forms.Form):
@@ -19,3 +19,4 @@ class EditarUsuarioForm(forms.Form):
     last_name = forms.CharField(label='Apellido', max_length=30, required=False)
     email = forms.EmailField(required=False)
     avatar = forms.ImageField(required=False, label='Avatar')
+

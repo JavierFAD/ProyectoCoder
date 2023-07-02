@@ -60,7 +60,7 @@
                                 {% if perms.encargado  %}
                                     <span class="dropdown-item">Permisos habilitados!</span>
                                 {% else %}
-                                    <a class="dropdown-item" href="{% url 'Contacto' %}">Solicitar Permisos</a>
+                                    <a class="dropdown-item" href="{% url 'solicitud' %}">Solicitar Permisos</a>
                                 {% endif %}
                             {% else %}
                             <li><a class="dropdown-item" href="{% url 'login' %}">Iniciar sesión</a></li>
@@ -88,7 +88,7 @@
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <ul class="list-inline text-center">
                         
-                        <div class="small text-center text fst-italic">Copyright &copy; Mi Sitio Web 2023</div>
+                        <div class="small text-center text fst-italic" style="color:white;">Copyright &copy; Mi Sitio Web 2023</div>
                         </ul>
                     </div>
                 </div>

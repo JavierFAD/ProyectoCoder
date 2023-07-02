@@ -5,31 +5,30 @@
 {% block title %} Daño por Objeto Extraño {% endblock title %}
 
 {% block main %}
-        <!-- Page Header-->
-        <header class="masthead" style= "background-image: url('{% static 'assets/img/post-bg.jpg' %}')">
-            <div class="container position-relative px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <div class="post-heading">
-                            <h1>El FOD es el acrónimo de Foreign Object Damage, o lo que es lo mismo: daño por objeto extraño.</h1>
-                            <h2 class="subheading">La presencia del FOD en los aeropuertos conlleva una amenaza a la operación segura de cada vuelo. Uno de los mayores peligros inherentes del Foreign Object Damage son las fases de vuelo donde se producen.</h2>
-                        </div>
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('{% static 'assets/img/post-bg.jpg' %}')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="post-heading">
+                        <h1 class="text-shadow">El FOD es el acrónimo de Foreign Object Damage, o lo que es lo mismo: daño por objeto extraño.</h1>
+                        <h2 class="subheading text-shadow">La presencia del FOD en los aeropuertos conlleva una amenaza a la operación segura de cada vuelo. Uno de los mayores peligros inherentes del Foreign Object Damage son las fases de vuelo donde se producen.</h2>
                     </div>
                 </div>
             </div>
-        </header>
-        <!-- Post Content-->
-        <article class="mb-4">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7 "style="color: white;">
-                        <p>Los daños por objetos extraños son cualquier daño atribuido a un objeto extraño que puede ser expresado en términos físicos o económicos y pueden o no degradar las características del rendimiento y de seguridad requerido al producto.</p>
-                        <p>FOD es un acrónimo de uso frecuente en la aviación para describir los daños causados a las aeronaves por objetos extraños, ya sea durante su etapa de fabricación como de uso.</p>
-                        <a href="#!"><img class="img-fluid" src={% static "assets/img/post-sample-image.jpg"%} alt="..." /></a>
-                        <span class="caption text" >Motor ingestado. Ni con buscapina</span>
-
-                    </div>
+        </div>
+    </header>
+    <!-- Post Content-->
+    <article class="mb-4">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7 text-white">
+                    <p class="text-shadow">Los daños por objetos extraños son cualquier daño atribuido a un objeto extraño que puede ser expresado en términos físicos o económicos y pueden o no degradar las características del rendimiento y de seguridad requerido al producto.</p>
+                    <p class="text-shadow">FOD es un acrónimo de uso frecuente en la aviación para describir los daños causados a las aeronaves por objetos extraños, ya sea durante su etapa de fabricación como de uso.</p>
+                    <a href="#!"><img class="img-fluid" src="{% static 'assets/img/post-sample-image.jpg' %}" alt="..." /></a>
+                    <span class="caption text text-shadow">Motor ingestado. Ni con buscapina</span>
                 </div>
             </div>
-        </article>
-        {% endblock main %}
+        </div>
+    </article>
+{% endblock main %}

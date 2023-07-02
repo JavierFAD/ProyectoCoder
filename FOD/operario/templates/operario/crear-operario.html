@@ -1,19 +1,28 @@
 {% extends 'base.html' %}
-
 {% load static %}
 
-{% block title %} Crear Nuevo Operario  {% endblock title %}
+{% block title %} Cargar Operario {% endblock title %}
 
 {% block main %}
-<div class="d-flex justify-content-center">
-    <div class="card" style="width: 60rem; color:white; background: #515A5A;" >
-    <form method="POST" class="m-2" enctype='multipart/form-data'>
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Cargar Datos" class="btn btn-primary">
-        <a href="{%url 'Lista-Operario'%}" class="btn btn-primary">Volver a Listado</a>
-    </form>
-</div>
-</div>
-        
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card" style="background: #f8f9fa;">
+                    <div class="card-header">
+                        <h5 class="mb-0 text">Cargar Operario</h5>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <div class="text-center mt-4">
+                                <input type="submit" value="Cargar operario" class="btn btn-success">
+                                <a href="{% url 'Lista-Operario' %}" class="btn btn-secondary">Volver a Listado</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock main %}

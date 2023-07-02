@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Administrador {% endblock title %}
+
+{% block main %}
+<div class="d-flex justify-content-center">
+  <div class="card text-center rounded-0 border-0" style="width: 22rem; background: #2ECC71; color: #333;">
+    <h1 class="card-title">Solicitud enviada exitosamente</h1>
+    <p class="card-text">Tu solicitud de staff ha sido enviada correctamente. Nos pondremos en contacto contigo pronto.</p>
+    <a class="btn btn-primary m-2" type="button" href={% url 'Home'%}>Volver al Inicio</a>
+  </div>
+</div>
+
+
+{% endblock main %}

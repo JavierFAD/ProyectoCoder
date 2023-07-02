@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} mensaje {% endblock title %}
+
+{% block main %}
+
+    {% if object_list %}
+        <div class="row">
+            {% for mensaje in object_list %}
+            <div class="d-flex justify-content-left">
+                <div class="card rounded" style="width: 20rem; color:white; background: #58D68D ;">
+                    <h4 class="card-title text-center" style="color: #212F3D;">{{ mensaje.usuario }}</h4>
+                    <h7> Mensaje: {{ mensaje.mensaje }}</h7></br>
+                    <a href="{% url 'ver-mensaje' mensaje.id %}" class="btn btn-primary">Ver</a>
+                    <a href="{% url 'eliminar-mensaje' mensaje.id %}" class="btn btn-danger">Eliminar</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="card" style="width: 25rem;">
+            <div class="card-body">
+                <p class="card-text">No se encontraron datos.</p>
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock main %}

@@ -15,6 +15,7 @@
                             <span class="subheading">Evite el F.O.D.</span>
                             {% if request.user.is_staff  %}
                                 <a class="btn btn-primary" href="admin/" role="button">Opciones de Administrador</a>
+                                <a class="btn btn-primary" href={% url 'listado-mensajes'%} role="button">Solicitudes de permisos</a>
                             {% endif %}
                         </div>
                     </div>

@@ -16,11 +16,11 @@
         <h7> Legajo: {{ operario.legajo }}</h7></br>
 
         <a href="{% url 'Detalle-Operario' operario.id %}" class="btn btn-primary">Ver</a>
-        {% if perms.operario.change_movie %}
+        {% if perms.operario.change_operario %}
             <a href="{% url 'Editar-Operario' operario.id %}" class="btn 
             btn-success">Editar</a>
         {% endif %}
-        {% if perms.operario.delete_movie %}
+        {% if perms.operario.delete_operario %}
             <a href="{% url 'Eliminar-Operario' operario.id %}" class="btn btn-danger">Borrar</a>
         {% endif %}
         </div>

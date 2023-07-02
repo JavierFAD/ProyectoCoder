@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} mensaje {% endblock title %}
+
+{% block main %}
+
+<div>
+    <a href="{% url 'listado-mensajes' %}" class="m-3 btn btn-primary">Lista de mensajes</a>
+    <a href="{% url 'Home' %}" class="m-3 btn btn-primary">Ir a página de inicio</a>
+</div>
+
+{% if mensaje %}
+    <div class="row">
+        <div class="card m-3" style="width: 24rem; background-color: #F0F0F0;">
+            {% if mensaje.usuario.imagen %}
+                <img src="{{ mensaje.usuario.imagen.url }}" alt="mensaje" style="height: 200px; width: 200px; object-fit: cover; border-radius: 5px;">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title" style="color: #333333;">{{ mensaje.usuario }}</h5>
+                <hr>
+                <p class="card-text" style="color: #666666;">Nombre: {{ mensaje.usuario.last_name }}, {{ mensaje.usuario.first_name }}.</p>
+                <p class="card-text" style="color: #666666;">e-mail: {{ mensaje.usuario.email }}</p>
+                <hr>
+                <p class="card-text" style="color: #666666;">Mensaje: {{ mensaje.mensaje }}</p>
+                <p class="card-text" style="color: #666666;">Fecha de pedido: {{ mensaje.fecha }}</p>
+                <p class="card-text" style="color: #666666;">Tel N° Interno: {{ mensaje.interno }}</p>
+            </div>
+        </div>
+    </div>
+{% else %}
+    <div class="card" style="width: 24rem;">
+        <div class="card-body">
+            <p class="card-text">No se encontraron datos.</p>
+        </div>
+    </div>
+{% endif %}
+
+{% endblock main %}

@@ -1,17 +1,21 @@
 {% extends 'base.html' %}
-
 {% load static %}
 
-{% block title %} Editar datos {% endblock title %}
+{% block title %} Editar Encargado {% endblock title %}
 
 {% block main %}
-<div class="d-flex justify-content-center">
-    <div class="card" style="width: 60rem; color:white; background: #B03A2E;" >
-    <form method="POST" class="m-2" enctype='multipart/form-data'>
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Guardar cambios" class="btn btn-success">
-    </form>
-</div>
+<div class="container">
+    <div class="d-flex justify-content-center">
+        <div class="card" style="width: 45rem; background-color: #f8f9fa;">
+            <div class="card-body">
+                <h5 class="card-title">Editar Encargado</h5>
+                <form method="POST" class="m-2" enctype='multipart/form-data'>
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Guardar cambios" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock main %}

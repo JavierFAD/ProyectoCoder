@@ -4,29 +4,38 @@
 {% block title %} Consumible {% endblock title %}
 
 {% block main %}
-    <div>
-        <a href="{% url 'Listado-Consumible' %}" class="m-3 btn btn-primary">Lista de Consumibles</a>
+<div class="container">
+    <div class="my-4">
+        <a href="{% url 'Listado-Consumible' %}" class="btn btn-primary">Volver al listado</a>
     </div>
     {% if consumible %}
-        <div class="row">
-            <div class="card m-3" style="width: 24rem;" >
-                {% if consumible.imagen %}
-                <img src={{consumible.imagen.url}} alt="consumible" style="height: 200px; width: 200px;">
-                {% endif %}
-                <div class="card-body">
-                <h5 class="card-title">{{ consumible.designacion }}</h5>
-                <p class="card-text">Descripción: {{ consumible.descripcion }}.</br> {{ consumible.cantidad }} {{ consumible.unidad }} </p>
-                <p class="card-text">Vencimiento: {{ consumible.vencimiento }} </br> Lote: {{ consumible.lote }}</p>
-                <p class="card-text">Especificaciones: {{ consumible.especificacion }}</p>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    {% if consumible.imagen %}
+                    <img src="{{ consumible.imagen.url }}" class="card-img-top" alt="consumible">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ consumible.designacion }}</h5>
+                        <p class="card-text">Descripción: {{ consumible.descripcion }}</p>
+                        <p class="card-text">Cantidad: {{ consumible.cantidad }} {{ consumible.unidad }}</p>
+                        <p class="card-text">Vencimiento: {{ consumible.vencimiento }}</p>
+                        <p class="card-text">Lote: {{ consumible.lote }}</p>
+                        <p class="card-text">Especificaciones: {{ consumible.especificacion }}</p>
+                    </div>
                 </div>
             </div>
         </div>
     {% else %}
-        <div class="card" style="width: 24rem;" >
-            <div class="card-body">
-                <p class="card-text">No se encontraron datos.</p>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <p class="card-text">No se encontraron datos.</p>
+                    </div>
+                </div>
             </div>
         </div>
     {% endif %}
-
+</div>
 {% endblock main %}
