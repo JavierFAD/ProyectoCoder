@@ -112,5 +112,5 @@ class DetalleMensajeView(LoginRequiredMixin, DetailView):
     
 class BorrarMensajeView(LoginRequiredMixin, DeleteView):
     model = models.Mensaje
-    success_url = reverse_lazy('lista-mensajes')
+    success_url = reverse_lazy('listado-mensajes')
     template_name = "administrador/eliminar-mensaje.html"
